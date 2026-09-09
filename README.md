@@ -2184,15 +2184,16 @@ Do not sacrifice usability for visual design.
 
 Build the complete experience accordingly.
 
-This project was built with [Lovable](https://lovable.dev).
+This project is a comprehensive **VisionPulse Sales & Operations Intelligence Dashboard** for real-time business analytics and decision-making.
 
-## Build with Lovable
+## Development & Deployment
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d617c0be-5e1a-4f91-b62b-7d708e40e554).
+This project is built with modern React and Node.js technologies. Continue developing by pushing to `main` on GitHub.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+### Quick Start:
+- **Ship faster**: develop features locally and deploy seamlessly
+- **Stay in sync**: all changes are committed and tracked in your repository
+- **Full ownership**: complete control over your business intelligence platform
 
 ## Development
 

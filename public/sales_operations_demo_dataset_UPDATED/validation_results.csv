@@ -1,0 +1,26 @@
+check,status,details
+Customer count unchanged,PASS,120 customers
+Product count unchanged,PASS,72 products
+Order count unchanged,PASS,3200 orders
+Order-item count unchanged,PASS,11486 order items
+Order subtotals reconcile,PASS,Max difference: 0.00
+Payments exactly reconcile to receivables,PASS,Mismatches: 0
+Invoice = Paid + Outstanding,PASS,Max difference: 0.00
+Inventory reconciles to stock movements,PASS,Max unit difference: 0
+Realistic In Stock count,PASS,52 products
+Realistic Low Stock count,PASS,11 products
+Realistic Out of Stock count,PASS,7 products
+Negative/discrepancy cases limited,PASS,2 products
+No future shipment records,PASS,0 future records
+No future delivery records,PASS,0 future records
+No future invoice records,PASS,0 future records
+No future payment records,PASS,0 future records
+No future return records,PASS,0 future records
+Ship dates never precede order dates,PASS,0 invalid
+Delivery dates never precede shipment,PASS,0 invalid
+Overdue receivables are balanced,PASS,Overdue = 34.58% of outstanding
+Enough overdue cases for testing,PASS,45 invoices
+Current receivables represented,PASS,104 invoices
+Due Soon receivables represented,PASS,63 invoices
+On-time deliveries represented,PASS,1775 deliveries
+Delayed deliveries represented,PASS,594 deliveries

@@ -1,10 +1,13 @@
-<!-- LOVABLE:BEGIN -->
+# VisionPulse Development Guidelines
+
 > [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
+> This project is a production Sales & Operations Intelligence Dashboard. Maintain code quality and follow best practices for all contributions.
 >
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+> Keep the main branch in a working state with all tests passing. Review changes carefully before committing.
+
+## Development Standards
+
+- Maintain consistent code style and documentation
+- Test all changes before committing
+- Write clear commit messages
+- Keep the repository clean and organized

@@ -1,0 +1,64 @@
+VISION71 TECHNOLOGIES
+SALES & OPERATIONS DATASET — FINAL VALIDATION
+======================================================================
+
+Reference Date: 2026-09-01
+
+DATASET VOLUME
+----------------------------------------------------------------------
+Customers:      120
+Products:       72
+Orders:         3,200
+Order Items:    11,486
+Returns:        325
+Receivables:    2,369
+Payments:       3,344
+
+INVENTORY
+----------------------------------------------------------------------
+In Stock:             52
+Low Stock:            11
+Out of Stock:         7
+Discrepancy:          2
+
+RECEIVABLES
+----------------------------------------------------------------------
+Outstanding: PKR 264,004,738.40
+Overdue:     PKR 91,287,109.90
+Overdue %:       34.58%
+
+DELIVERY PERFORMANCE
+----------------------------------------------------------------------
+Completed Deliveries: 2,369
+On-Time Deliveries:   1,775
+Delayed Deliveries:   594
+On-Time Rate:         74.93%
+Average Delivery:     6.98 days
+
+VALIDATION RESULTS
+----------------------------------------------------------------------
+PASS  | Customer count unchanged | 120 customers
+PASS  | Product count unchanged | 72 products
+PASS  | Order count unchanged | 3200 orders
+PASS  | Order-item count unchanged | 11486 order items
+PASS  | Order subtotals reconcile | Max difference: 0.00
+PASS  | Payments exactly reconcile to receivables | Mismatches: 0
+PASS  | Invoice = Paid + Outstanding | Max difference: 0.00
+PASS  | Inventory reconciles to stock movements | Max unit difference: 0
+PASS  | Realistic In Stock count | 52 products
+PASS  | Realistic Low Stock count | 11 products
+PASS  | Realistic Out of Stock count | 7 products
+PASS  | Negative/discrepancy cases limited | 2 products
+PASS  | No future shipment records | 0 future records
+PASS  | No future delivery records | 0 future records
+PASS  | No future invoice records | 0 future records
+PASS  | No future payment records | 0 future records
+PASS  | No future return records | 0 future records
+PASS  | Ship dates never precede order dates | 0 invalid
+PASS  | Delivery dates never precede shipment | 0 invalid
+PASS  | Overdue receivables are balanced | Overdue = 34.58% of outstanding
+PASS  | Enough overdue cases for testing | 45 invoices
+PASS  | Current receivables represented | 104 invoices
+PASS  | Due Soon receivables represented | 63 invoices
+PASS  | On-time deliveries represented | 1775 deliveries
+PASS  | Delayed deliveries represented | 594 deliveries

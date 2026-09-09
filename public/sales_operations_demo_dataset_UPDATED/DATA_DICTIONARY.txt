@@ -1,0 +1,99 @@
+
+VISION71 TECHNOLOGIES
+SALES & OPERATIONS DEMO DATASET
+
+Reference Date:
+2026-09-01
+
+Historical Transaction Range:
+2025-03-01 to 2026-08-31
+
+Currency:
+PKR
+
+
+============================================================
+INVENTORY BUSINESS RULES
+============================================================
+
+quantity_available =
+quantity_on_hand - quantity_reserved
+
+In Stock:
+quantity_available > reorder_level
+
+Low Stock:
+0 < quantity_available <= reorder_level
+
+Out of Stock:
+quantity_available = 0
+
+Inventory Discrepancy:
+quantity_available < 0
+
+The dataset intentionally contains only a small number of
+negative-stock records for exception/validation testing.
+
+
+============================================================
+RECEIVABLE BUSINESS RULES
+============================================================
+
+outstanding_amount =
+invoice_amount - amount_paid
+
+Paid:
+outstanding_amount = 0
+
+Current:
+outstanding balance exists and invoice is not due within
+the next 14 days.
+
+Due Soon:
+outstanding balance exists and due date is within 14 days.
+
+Overdue:
+due_date < reference_date AND outstanding_amount > 0.
+
+Payment records reconcile exactly with amount_paid.
+
+
+============================================================
+DELIVERY PERFORMANCE
+============================================================
+
+On Time:
+delivered_date <= required_date
+
+Delayed:
+delivered_date > required_date
+
+delivery_delay_days:
+MAX(delivered_date - required_date, 0)
+
+delivery_lead_time_days:
+delivered_date - order_date
+
+Overdue Open Order:
+order has not been delivered and required_date has passed.
+
+
+============================================================
+IMPORTANT DASHBOARD RULES
+============================================================
+
+1. Cancelled orders must not contribute to sales.
+
+2. Returns reduce net sales.
+
+3. Every dashboard total must be calculated from source records.
+
+4. Customer rankings derive from qualifying sales orders.
+
+5. Product rankings derive from qualifying order items.
+
+6. Inventory value uses quantity_on_hand × unit_cost.
+
+7. Receivables and payments must always reconcile.
+
+8. Operational dates never exceed the dataset reference date.

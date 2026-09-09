@@ -1,0 +1,73 @@
+product_id,sku,product_name,category,unit_price,unit_cost,gross_margin_pct,reorder_level,preferred_stock_level,supplier_lead_time_days,product_status,units_sold,sales_revenue
+PRD-0001,F-0001,Storage Credenza,Furniture,49000,35150,28.27,9,46,30,Active,300,14010325.0
+PRD-0002,E-0002,Voltage Stabilizer 5KVA,Electrical,52050,38100,26.8,33,139,7,Active,595,29688018.75
+PRD-0003,IS-0003,Portable Air Compressor,Industrial Supplies,88300,65000,26.39,10,21,30,Active,779,65498732.5
+PRD-0004,E-0004,Emergency Light,Electrical,7100,4600,35.21,13,57,10,Active,2570,17219807.5
+PRD-0005,SE-0005,Fire Extinguisher 6kg,Safety Equipment,11500,7900,31.3,15,110,14,Active,10164,110410925.0
+PRD-0006,IS-0006,Angle Grinder,Industrial Supplies,27000,19650,27.22,8,50,7,Active,825,20965500.0
+PRD-0007,IN-0007,Cat6 Cable Box 305m,IT & Networking,33250,23700,28.72,10,53,5,Active,3490,110523000.0
+PRD-0008,IN-0008,Fiber Media Converter,IT & Networking,11400,7800,31.58,4,51,21,Active,880,9495060.0
+PRD-0009,OE-0009,Laser Printer,Office Equipment,75050,56000,25.38,12,52,21,Active,1939,138395952.5
+PRD-0010,IN-0010,24-Port Managed Network Switch,IT & Networking,50450,37650,25.37,15,56,21,Active,395,18843075.0
+PRD-0011,F-0011,Executive Office Chair,Furniture,50250,35950,28.46,10,58,14,Active,1617,77059631.25
+PRD-0012,IS-0012,Industrial Tool Kit,Industrial Supplies,42850,31750,25.9,14,43,14,Active,227,9250243.75
+PRD-0013,C-0013,Packaging Tape Carton,Consumables,8750,5350,38.86,29,155,14,Active,6877,56966875.0
+PRD-0014,F-0014,Conference Table 10 Person,Furniture,199750,146450,26.68,14,37,5,Active,749,141403025.0
+PRD-0015,OE-0015,Barcode Scanner,Office Equipment,19300,12700,34.2,11,30,21,Active,415,7597445.0
+PRD-0016,IS-0016,Cordless Screwdriver Set,Industrial Supplies,18750,12900,31.2,11,55,7,Active,809,14339062.5
+PRD-0017,OE-0017,Cash Drawer,Office Equipment,15250,10000,34.43,9,37,14,Active,834,12096681.25
+PRD-0018,IS-0018,Heavy Duty Drill Machine,Industrial Supplies,39400,29550,25.0,11,56,5,Active,254,9372275.0
+PRD-0019,E-0019,Circuit Breaker 32A,Electrical,2950,1850,37.29,33,54,7,Active,1113,3157163.75
+PRD-0020,F-0020,Ergonomic Task Chair,Furniture,31900,22100,30.72,13,31,10,Active,162,4825672.5
+PRD-0021,F-0021,Executive Desk,Furniture,151550,109750,27.58,6,48,30,Active,1292,185754835.0
+PRD-0022,IS-0022,Digital Multimeter,Industrial Supplies,13950,9250,33.69,9,51,30,Active,997,13158337.5
+PRD-0023,OE-0023,Conference Speakerphone,Office Equipment,46600,33950,27.15,8,44,7,Active,1221,53817175.0
+PRD-0024,C-0024,Printer Toner Cartridge,Consumables,17950,12350,31.2,46,146,21,Active,2393,40829967.5
+PRD-0025,F-0025,Steel Filing Cabinet,Furniture,32700,22850,30.12,5,60,5,Active,532,16396597.5
+PRD-0026,C-0026,Printer Label Roll Pack,Consumables,5050,3050,39.6,38,202,5,Active,4520,21577387.5
+PRD-0027,C-0027,Disposable Gloves Carton,Consumables,11500,7200,37.39,36,158,30,Active,8158,88849862.5
+PRD-0028,C-0028,Cleaning Tissue Carton,Consumables,6400,4200,34.38,60,140,30,Active,2634,16009600.0
+PRD-0029,IS-0029,Industrial Ladder,Industrial Supplies,30900,21650,29.94,6,42,21,Active,518,15298590.0
+PRD-0030,E-0030,Automatic Voltage Regulator,Electrical,35850,25550,28.73,17,56,5,Active,5261,177517548.75
+PRD-0031,SE-0031,Reflective Safety Vest,Safety Equipment,1600,900,43.75,24,109,21,Active,4099,6224800.0
+PRD-0032,OE-0032,Interactive Display 65 Inch,Office Equipment,383350,305700,20.26,4,39,30,Active,1724,624994672.5
+PRD-0033,IN-0033,48-Port Managed Network Switch,IT & Networking,88100,66350,24.69,5,21,10,Active,1172,98332815.0
+PRD-0034,IS-0034,Industrial Measuring Tape,Industrial Supplies,2800,1650,41.07,15,45,30,Active,5154,13684230.0
+PRD-0035,OE-0035,Projector 4500 Lumens,Office Equipment,195800,149250,23.77,11,42,7,Active,347,64427990.0
+PRD-0036,F-0036,Office Reception Desk,Furniture,170650,122850,28.01,5,44,21,Active,1403,226985831.25
+PRD-0037,C-0037,A4 Paper Box,Consumables,7650,5500,28.1,37,138,5,Active,9161,66324926.25
+PRD-0038,OE-0038,Paper Shredder,Office Equipment,32300,22650,29.88,14,51,10,Active,994,30499275.0
+PRD-0039,SE-0039,First Aid Kit Industrial,Safety Equipment,13350,9100,31.84,15,56,5,Active,970,12449542.5
+PRD-0040,F-0040,Workstation Desk,Furniture,70550,49600,29.7,5,33,5,Active,1482,98500146.25
+PRD-0041,OE-0041,Document Scanner,Office Equipment,70000,52200,25.43,15,54,14,Active,77,5129250.0
+PRD-0042,SE-0042,Safety Harness,Safety Equipment,16900,11500,31.95,14,108,30,Active,381,6013020.0
+PRD-0043,OE-0043,Label Printer,Office Equipment,35950,25500,29.07,14,53,5,Active,692,23485236.25
+PRD-0044,C-0044,Thermal Paper Roll Pack,Consumables,3350,2000,40.3,39,192,10,Active,1242,3948980.0
+PRD-0045,E-0045,Circuit Breaker 63A,Electrical,4400,2800,36.36,25,79,5,Active,8409,35074820.0
+PRD-0046,IN-0046,Enterprise UPS 3KVA,IT & Networking,141200,107400,23.94,5,43,7,Active,523,69569240.0
+PRD-0047,IN-0047,Network Rack 24U,IT & Networking,67750,48250,28.78,9,30,14,Active,574,36947462.5
+PRD-0048,IN-0048,Network Firewall Appliance,IT & Networking,160400,117650,26.65,4,46,5,Active,1091,165151850.0
+PRD-0049,SE-0049,Safety Helmet,Safety Equipment,2250,1400,37.78,24,89,5,Active,3838,8199675.0
+PRD-0050,SE-0050,Industrial Safety Gloves,Safety Equipment,1200,650,45.83,23,126,21,Active,4293,4868430.0
+PRD-0051,C-0051,Industrial Cleaning Liquid,Consumables,7700,4850,37.01,51,123,10,Active,1614,11793897.5
+PRD-0052,IS-0052,Hydraulic Jack,Industrial Supplies,40400,29250,27.6,8,24,21,Active,1671,63931990.0
+PRD-0053,IS-0053,Industrial Trolley,Industrial Supplies,50250,36300,27.76,6,51,30,Active,2715,129492993.75
+PRD-0054,E-0054,Industrial Socket 32A,Electrical,6000,4000,33.33,13,125,14,Active,1057,6023850.0
+PRD-0055,IN-0055,Network Rack 12U,IT & Networking,43600,31400,27.98,12,31,14,Active,304,12430360.0
+PRD-0056,IN-0056,Rack Mount PDU,IT & Networking,16900,12000,28.99,5,54,7,Active,473,7613027.5
+PRD-0057,F-0057,Meeting Room Chair,Furniture,25450,17350,31.83,15,31,14,Active,846,20337731.25
+PRD-0058,OE-0058,Thermal Receipt Printer,Office Equipment,28050,19450,30.66,14,44,14,Active,1626,43146510.0
+PRD-0059,SE-0059,Protective Safety Goggles,Safety Equipment,1850,1050,43.24,19,73,5,Active,875,1519960.0
+PRD-0060,F-0060,Visitor Chair,Furniture,16450,11150,32.22,7,37,10,Active,977,15299733.75
+PRD-0061,E-0061,Surge Protector,Electrical,5600,3650,34.82,29,117,10,Active,900,4802700.0
+PRD-0062,E-0062,Industrial Extension Reel,Electrical,13700,9000,34.31,30,124,14,Active,770,10128410.0
+PRD-0063,C-0063,Hand Sanitizer Carton,Consumables,12650,8000,36.76,60,172,30,Active,4510,54103101.25
+PRD-0064,IN-0064,Wi-Fi 6 Access Point,IT & Networking,40250,28850,28.32,10,49,10,Active,811,30598050.0
+PRD-0065,SE-0065,Safety Shoes,Safety Equipment,9000,5800,35.56,12,95,21,Active,1727,14744700.0
+PRD-0066,SE-0066,Ear Protection Headset,Safety Equipment,5300,3250,38.68,32,140,5,Active,9357,47165892.5
+PRD-0067,SE-0067,Traffic Safety Cone,Safety Equipment,2050,1250,39.02,29,100,30,Active,1170,2274116.25
+PRD-0068,IN-0068,8-Port PoE Switch,IT & Networking,29000,20900,27.93,4,41,10,Active,354,9767200.0
+PRD-0069,IN-0069,Business Router,IT & Networking,41700,30300,27.34,5,55,21,Active,3095,121967287.5
+PRD-0070,E-0070,LED Panel Light 40W,Electrical,5100,3300,35.29,32,122,30,Active,948,4557615.0
+PRD-0071,C-0071,Whiteboard Marker Box,Consumables,2300,1300,43.48,53,122,30,Active,0,0.0
+PRD-0072,E-0072,Electrical Distribution Box,Electrical,30050,20450,31.95,18,127,7,Active,0,0.0

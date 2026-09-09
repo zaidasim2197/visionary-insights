@@ -1,0 +1,20 @@
+metric,value
+Gross Sales,4381576835.56
+Returns,102364523.75
+Net Sales,4279212311.81
+Gross Profit,877676091.25
+Total Orders,2640.0
+Average Order Value,1620913.75
+Outstanding Receivables,264004738.4
+Overdue Receivables,91287109.9
+Overdue Receivables %,34.58
+Inventory Value,86232850.0
+In Stock Products,52.0
+Low Stock Products,11.0
+Out of Stock Products,7.0
+Inventory Discrepancies,2.0
+On-Time Delivery Rate %,74.93
+Delayed Deliveries,594.0
+Average Delivery Days,6.98
+Average Delay Days,2.88
+Overdue Open Orders,711.0

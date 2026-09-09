@@ -678,10 +678,10 @@ export function drillDown(
   page: number,
   pageSize: number,
   entityId?: string,
-): { data: Paged<Record<string, unknown>>; columns: { key: string; label: string; align?: "right" }[] } {
+): { data: Paged<Record<string, any>>; columns: { key: string; label: string; align?: "right" }[] } {
   const ds = getDataset();
   const slice = <T>(rows: T[]) => ({
-    rows: rows.slice((page - 1) * pageSize, page * pageSize) as Record<string, unknown>[],
+    rows: rows.slice((page - 1) * pageSize, page * pageSize) as Record<string, any>[],
     page,
     pageSize,
     total: rows.length,
