@@ -14,7 +14,9 @@ import receivablesCsv from "@/data/receivables.csv?raw";
 import paymentsCsv from "@/data/payments.csv?raw";
 import returnsCsv from "@/data/returns.csv?raw";
 
-function parseCsv(text: string): Record<string, string>[] {
+type Row = (key: string) => string;
+
+function parseCsv(text: string): Row[] {
   const rows: string[][] = [];
   let row: string[] = [];
   let field = "";
@@ -48,10 +50,10 @@ function parseCsv(text: string): Record<string, string>[] {
   const header = rows.shift() ?? [];
   return rows
     .filter((r) => r.length > 1)
-    .map((r) => {
-      const o: Record<string, string> = {};
-      header.forEach((h, i) => (o[h] = r[i] ?? ""));
-      return o;
+    .map((r): Row => {
+      const o = new Map<string, string>();
+      header.forEach((h, i) => o.set(h, r[i] ?? ""));
+      return (key: string) => o.get(key) ?? "";
     });
 }
 
@@ -185,91 +187,91 @@ export function getDataset(): Dataset {
   if (cache) return cache;
 
   const customers: Customer[] = parseCsv(customersCsv).map((r) => ({
-    id: r["customer_id"],
-    name: r["customer_name"],
-    industry: r["industry"],
-    city: r["city"],
-    segment: r["customer_segment"],
-    paymentTermsDays: num(r["payment_terms_days"]),
-    status: r["account_status"],
+    id: r("customer_id"),
+    name: r("customer_name"),
+    industry: r("industry"),
+    city: r("city"),
+    segment: r("customer_segment"),
+    paymentTermsDays: num(r("payment_terms_days")),
+    status: r("account_status"),
   }));
 
   const products: Product[] = parseCsv(productsCsv).map((r) => ({
-    id: r["product_id"],
-    sku: r["sku"],
-    name: r["product_name"],
-    category: r["category"],
-    unitPrice: num(r["unit_price"]),
-    unitCost: num(r["unit_cost"]),
-    reorderLevel: num(r["reorder_level"]),
-    active: r["product_status"] === "Active",
+    id: r("product_id"),
+    sku: r("sku"),
+    name: r("product_name"),
+    category: r("category"),
+    unitPrice: num(r("unit_price")),
+    unitCost: num(r("unit_cost")),
+    reorderLevel: num(r("reorder_level")),
+    active: r("product_status") === "Active",
   }));
 
   const orders: CustomerOrder[] = parseCsv(ordersCsv).map((r) => ({
-    id: r["order_id"],
-    customerId: r["customer_id"],
-    orderDate: r["order_date"],
-    requiredDate: nullableDate(r["required_date"]),
-    deliveredDate: nullableDate(r["delivered_date"]),
-    status: r["order_status"] as OrderStatus,
-    channel: r["sales_channel"],
-    subtotal: num(r["subtotal"]),
-    totalAmount: num(r["total_amount"]),
-    totalCost: num(r["total_cost"]),
+    id: r("order_id"),
+    customerId: r("customer_id"),
+    orderDate: r("order_date"),
+    requiredDate: nullableDate(r("required_date")),
+    deliveredDate: nullableDate(r("delivered_date")),
+    status: r("order_status") as OrderStatus,
+    channel: r("sales_channel"),
+    subtotal: num(r("subtotal")),
+    totalAmount: num(r("total_amount")),
+    totalCost: num(r("total_cost")),
   }));
 
   const orderLines: OrderLine[] = parseCsv(orderItemsCsv).map((r) => ({
-    id: r["order_item_id"],
-    orderId: r["order_id"],
-    productId: r["product_id"],
-    quantity: num(r["quantity"]),
-    unitPrice: num(r["unit_price"]),
-    unitCost: num(r["unit_cost"]),
-    lineTotal: num(r["line_total"]),
-    lineCost: num(r["line_cost"]),
+    id: r("order_item_id"),
+    orderId: r("order_id"),
+    productId: r("product_id"),
+    quantity: num(r("quantity")),
+    unitPrice: num(r("unit_price")),
+    unitCost: num(r("unit_cost")),
+    lineTotal: num(r("line_total")),
+    lineCost: num(r("line_cost")),
   }));
 
   const inventory: InventoryPosition[] = parseCsv(inventoryCsv).map((r) => ({
-    productId: r["product_id"],
-    warehouse: r["warehouse"],
-    quantityOnHand: num(r["quantity_on_hand"]),
-    quantityReserved: num(r["quantity_reserved"]),
-    quantityAvailable: num(r["quantity_available"]),
-    reorderLevel: num(r["reorder_level"]),
-    valueAtCost: num(r["inventory_value_at_cost"]),
+    productId: r("product_id"),
+    warehouse: r("warehouse"),
+    quantityOnHand: num(r("quantity_on_hand")),
+    quantityReserved: num(r("quantity_reserved")),
+    quantityAvailable: num(r("quantity_available")),
+    reorderLevel: num(r("reorder_level")),
+    valueAtCost: num(r("inventory_value_at_cost")),
   }));
 
   const receivables: Receivable[] = parseCsv(receivablesCsv).map((r) => ({
-    id: r["invoice_id"],
-    orderId: r["order_id"],
-    customerId: r["customer_id"],
-    invoiceDate: r["invoice_date"],
-    dueDate: r["due_date"],
-    invoiceAmount: num(r["invoice_amount"]),
-    amountPaid: num(r["amount_paid"]),
-    outstanding: num(r["outstanding_amount"]),
-    status: r["payment_status"],
-    agingBucket: r["aging_bucket"],
-    daysOverdue: num(r["days_overdue"]),
+    id: r("invoice_id"),
+    orderId: r("order_id"),
+    customerId: r("customer_id"),
+    invoiceDate: r("invoice_date"),
+    dueDate: r("due_date"),
+    invoiceAmount: num(r("invoice_amount")),
+    amountPaid: num(r("amount_paid")),
+    outstanding: num(r("outstanding_amount")),
+    status: r("payment_status"),
+    agingBucket: r("aging_bucket"),
+    daysOverdue: num(r("days_overdue")),
   }));
 
   const payments: Payment[] = parseCsv(paymentsCsv).map((r) => ({
-    id: r["payment_id"],
-    invoiceId: r["invoice_id"],
-    customerId: r["customer_id"],
-    paymentDate: r["payment_date"],
-    method: r["payment_method"],
-    amount: num(r["payment_amount"]),
+    id: r("payment_id"),
+    invoiceId: r("invoice_id"),
+    customerId: r("customer_id"),
+    paymentDate: r("payment_date"),
+    method: r("payment_method"),
+    amount: num(r("payment_amount")),
   }));
 
   const returns: ProductReturn[] = parseCsv(returnsCsv).map((r) => ({
-    id: r["return_id"],
-    orderId: r["order_id"],
-    productId: r["product_id"],
-    returnDate: r["return_date"],
-    quantity: num(r["quantity_returned"]),
-    reason: r["return_reason"],
-    refundAmount: num(r["refund_amount"]),
+    id: r("return_id"),
+    orderId: r("order_id"),
+    productId: r("product_id"),
+    returnDate: r("return_date"),
+    quantity: num(r("quantity_returned")),
+    reason: r("return_reason"),
+    refundAmount: num(r("refund_amount")),
   }));
 
   const linesByOrder = new Map<string, OrderLine[]>();
