@@ -1,0 +1,73 @@
+product_id,warehouse,quantity_on_hand,quantity_reserved,quantity_available,reorder_level,preferred_stock_level,stock_status,inventory_value_at_cost
+PRD-0001,Central Warehouse,0,0,0,9,46,Out of Stock,0.0
+PRD-0002,Central Warehouse,119,46,73,33,139,In Stock,4533900.0
+PRD-0003,Central Warehouse,28,7,21,10,21,In Stock,1820000.0
+PRD-0004,Central Warehouse,57,19,38,13,57,In Stock,262200.0
+PRD-0005,Central Warehouse,73,36,37,15,110,In Stock,576700.0
+PRD-0006,Central Warehouse,50,16,34,8,50,In Stock,982500.0
+PRD-0007,Central Warehouse,43,17,26,10,53,In Stock,1019100.0
+PRD-0008,Central Warehouse,37,17,20,4,51,In Stock,288600.0
+PRD-0009,Central Warehouse,52,17,35,12,52,In Stock,2912000.0
+PRD-0010,Central Warehouse,19,18,1,15,56,Low Stock,715350.0
+PRD-0011,Central Warehouse,22,19,3,10,58,Low Stock,790900.0
+PRD-0012,Central Warehouse,32,9,23,14,43,In Stock,1016000.0
+PRD-0013,Central Warehouse,171,51,120,29,155,In Stock,914850.0
+PRD-0014,Central Warehouse,31,12,19,14,37,In Stock,4539950.0
+PRD-0015,Central Warehouse,21,10,11,11,30,Low Stock,266700.0
+PRD-0016,Central Warehouse,53,18,35,11,55,In Stock,683700.0
+PRD-0017,Central Warehouse,0,0,0,9,37,Out of Stock,0.0
+PRD-0018,Central Warehouse,69,18,51,11,56,In Stock,2038950.0
+PRD-0019,Central Warehouse,33,18,15,33,54,Low Stock,61050.0
+PRD-0020,Central Warehouse,32,10,22,13,31,In Stock,707200.0
+PRD-0021,Central Warehouse,17,16,1,6,48,Low Stock,1865750.0
+PRD-0022,Central Warehouse,36,17,19,9,51,In Stock,333000.0
+PRD-0023,Central Warehouse,56,14,42,8,44,In Stock,1901200.0
+PRD-0024,Central Warehouse,183,48,135,46,146,In Stock,2260050.0
+PRD-0025,Central Warehouse,0,0,0,5,60,Out of Stock,0.0
+PRD-0026,Central Warehouse,139,67,72,38,202,In Stock,423950.0
+PRD-0027,Central Warehouse,174,52,122,36,158,In Stock,1252800.0
+PRD-0028,Central Warehouse,-3,0,-3,60,140,Inventory Discrepancy,0.0
+PRD-0029,Central Warehouse,52,14,38,6,42,In Stock,1125800.0
+PRD-0030,Central Warehouse,0,0,0,17,56,Out of Stock,0.0
+PRD-0031,Central Warehouse,137,36,101,24,109,In Stock,123300.0
+PRD-0032,Central Warehouse,38,13,25,4,39,In Stock,11616600.0
+PRD-0033,Central Warehouse,16,7,9,5,21,In Stock,1061600.0
+PRD-0034,Central Warehouse,40,15,25,15,45,In Stock,66000.0
+PRD-0035,Central Warehouse,24,0,24,11,42,In Stock,3582000.0
+PRD-0036,Central Warehouse,38,14,24,5,44,In Stock,4668300.0
+PRD-0037,Central Warehouse,53,46,7,37,138,Low Stock,291500.0
+PRD-0038,Central Warehouse,68,17,51,14,51,In Stock,1540200.0
+PRD-0039,Central Warehouse,0,0,0,15,56,Out of Stock,0.0
+PRD-0040,Central Warehouse,39,11,28,5,33,In Stock,1934400.0
+PRD-0041,Central Warehouse,0,0,0,15,54,Out of Stock,0.0
+PRD-0042,Central Warehouse,83,36,47,14,108,In Stock,954500.0
+PRD-0043,Central Warehouse,52,17,35,14,53,In Stock,1326000.0
+PRD-0044,Central Warehouse,84,64,20,39,192,Low Stock,168000.0
+PRD-0045,Central Warehouse,101,26,75,25,79,In Stock,282800.0
+PRD-0046,Central Warehouse,46,14,32,5,43,In Stock,4940400.0
+PRD-0047,Central Warehouse,0,0,0,9,30,Out of Stock,0.0
+PRD-0048,Central Warehouse,56,15,41,4,46,In Stock,6588400.0
+PRD-0049,Central Warehouse,83,29,54,24,89,In Stock,116200.0
+PRD-0050,Central Warehouse,76,42,34,23,126,In Stock,49400.0
+PRD-0051,Central Warehouse,159,41,118,51,123,In Stock,771150.0
+PRD-0052,Central Warehouse,20,8,12,8,24,In Stock,585000.0
+PRD-0053,Central Warehouse,47,17,30,6,51,In Stock,1706100.0
+PRD-0054,Central Warehouse,127,41,86,13,125,In Stock,508000.0
+PRD-0055,Central Warehouse,32,10,22,12,31,In Stock,1004800.0
+PRD-0056,Central Warehouse,53,18,35,5,54,In Stock,636000.0
+PRD-0057,Central Warehouse,39,10,29,15,31,In Stock,676650.0
+PRD-0058,Central Warehouse,40,14,26,14,44,In Stock,778000.0
+PRD-0059,Central Warehouse,72,24,48,19,73,In Stock,75600.0
+PRD-0060,Central Warehouse,44,12,32,7,37,In Stock,490600.0
+PRD-0061,Central Warehouse,26,25,1,29,117,Low Stock,94900.0
+PRD-0062,Central Warehouse,-3,0,-3,30,124,Inventory Discrepancy,0.0
+PRD-0063,Central Warehouse,160,57,103,60,172,In Stock,1280000.0
+PRD-0064,Central Warehouse,24,16,8,10,49,Low Stock,692400.0
+PRD-0065,Central Warehouse,49,31,18,12,95,In Stock,284200.0
+PRD-0066,Central Warehouse,118,46,72,32,140,In Stock,383500.0
+PRD-0067,Central Warehouse,112,33,79,29,100,In Stock,140000.0
+PRD-0068,Central Warehouse,17,13,4,4,41,Low Stock,355300.0
+PRD-0069,Central Warehouse,38,18,20,5,55,In Stock,1151400.0
+PRD-0070,Central Warehouse,58,40,18,32,122,Low Stock,191400.0
+PRD-0071,Central Warehouse,99,0,99,53,122,In Stock,128700.0
+PRD-0072,Central Warehouse,83,0,83,18,127,In Stock,1697350.0
