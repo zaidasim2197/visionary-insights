@@ -1,8 +1,6 @@
-import { defineNitroConfig } from 'nitro';
-
-export default defineNitroConfig({
+export default {
   // Detect environment automatically
-  presets: process.env.VERCEL ? ['vercel'] : ['cloudflare-module'],
+  preset: process.env.VERCEL ? 'vercel' : 'cloudflare-module',
   
   // API routes configuration
   routeRules: {
@@ -23,7 +21,7 @@ export default defineNitroConfig({
   },
 
   // Node compatibility for Vercel
-  node: process.env.VERCEL ? true : false,
+  node: Boolean(process.env.VERCEL),
 
   // Environment variables
   env: {
@@ -32,4 +30,4 @@ export default defineNitroConfig({
 
   // Build settings
   minify: true,
-});
+};
