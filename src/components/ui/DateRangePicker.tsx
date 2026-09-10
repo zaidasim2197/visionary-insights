@@ -25,10 +25,14 @@ export const DateRangePicker: React.FC = () => {
 
   const selectPreset = (preset: DatePreset) => {
     // Reference date for demo dataset is August 2026 (2026-08-31)
-    let from = "2026-08-01";
+    let from = "2025-03-01";
     let to = "2026-08-31";
 
     switch (preset) {
+      case "all_time":
+        from = "2025-03-01";
+        to = "2026-08-31";
+        break;
       case "today":
         from = "2026-08-31";
         to = "2026-08-31";
@@ -67,6 +71,7 @@ export const DateRangePicker: React.FC = () => {
   };
 
   const presetLabels: Record<DatePreset, string> = {
+    all_time: "All Time",
     today: "Today",
     this_week: "This Week",
     this_month: "This Month (Aug 2026)",
@@ -94,7 +99,7 @@ export const DateRangePicker: React.FC = () => {
           </div>
 
           <div className="mt-1.5 space-y-0.5">
-            {(["today", "this_week", "this_month", "this_quarter", "this_year"] as DatePreset[]).map(
+            {(["all_time", "today", "this_week", "this_month", "this_quarter", "this_year"] as DatePreset[]).map(
               (p) => (
                 <button
                   key={p}

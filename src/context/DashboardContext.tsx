@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import type { Role } from "@/lib/shared-types";
 import type { DrillType } from "@/lib/metrics.server";
 
-export type DatePreset = "today" | "this_week" | "this_month" | "this_quarter" | "this_year" | "custom";
+export type DatePreset = "all_time" | "today" | "this_week" | "this_month" | "this_quarter" | "this_year" | "custom";
 
 export interface DateRange {
   from: string;
@@ -35,9 +35,9 @@ interface DashboardContextType {
 }
 
 const DEFAULT_RANGE: DateRange = {
-  from: "2026-08-01",
+  from: "2025-03-01",
   to: "2026-08-31",
-  preset: "this_month",
+  preset: "all_time",
 };
 
 const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
