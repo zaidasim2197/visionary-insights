@@ -10,7 +10,8 @@ export const QUALIFYING_STATUSES = [
   "Shipped",
   "Delivered",
   "Returned",
-  "Partially Returned",
+  "Processing",
+  "Pending",
 ] as const;
 
 export interface Order {

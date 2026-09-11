@@ -50,7 +50,7 @@ export function formatKpiNumber(val: number | null | undefined): string {
   const abs = Math.abs(val);
   if (abs >= 1_000_000_000) return `${(val / 1_000_000_000).toFixed(2)}B`;
   if (abs >= 1_000_000) return `${(val / 1_000_000).toFixed(1)}M`;
-  if (abs >= 1_000) return `${(val / 1_000).toFixed(1)}K`;
+  if (abs >= 10_000) return `${(val / 1_000).toFixed(1)}K`;
   return Math.round(val).toLocaleString("en-US");
 }
 
@@ -62,8 +62,8 @@ export function formatNumber(val: number | null | undefined, decimals = 0): stri
   }).format(val);
 }
 
-export function formatPercent(val: number | null | undefined): string {
+export function formatPercent(val: number | null | undefined, showPlus = false): string {
   if (val === null || val === undefined || isNaN(val)) return "0%";
-  const sign = val > 0 ? "+" : "";
+  const sign = showPlus && val > 0 ? "+" : "";
   return `${sign}${val.toFixed(1)}%`;
 }
