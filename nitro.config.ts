@@ -1,6 +1,6 @@
 export default {
-  // Detect environment automatically
-  preset: process.env.VERCEL ? 'vercel' : 'cloudflare-module',
+  // Preset for Vercel deployment
+  preset: 'vercel',
   
   // API routes configuration
   routeRules: {
