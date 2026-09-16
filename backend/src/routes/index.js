@@ -9,6 +9,27 @@ import importRoutes from './import.routes.js';
 
 const router = Router();
 
+// Root API status endpoint
+router.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'VisionPulse — Sales & Operations Dashboard API',
+    version: '1.0.0',
+    documentation: '/api/v1',
+    endpoints: {
+      health: '/health',
+      auth: '/api/v1/auth',
+      sales: '/api/v1/sales',
+      orders: '/api/v1/orders',
+      inventory: '/api/v1/inventory',
+      receivables: '/api/v1/receivables',
+      analytics: '/api/v1/analytics',
+      import: '/api/v1/import'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 router.get('/health', (req, res) => {
   res.status(200).json({
