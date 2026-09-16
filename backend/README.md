@@ -74,6 +74,23 @@ npm run test:unit
 
 ---
 
+## ☁️ Vercel Serverless Deployment
+
+This backend is pre-configured for deployment as a serverless microservice on **Vercel**:
+
+1. **Serverless Entrypoint:** Automatically routes all `/api/v1/*` requests through `api/index.js` via `vercel.json` rewrites.
+2. **Connection Pooling & Caching:** Uses cached connection checking in `src/config/db.js` with `bufferCommands: false` to ensure zero connection leaks across serverless function invocations.
+3. **Build Verification Gate:** `npm run build` runs static syntax and entrypoint validation before deploying.
+
+### Required Vercel Environment Variables:
+- `MONGODB_URI`: Connection string to MongoDB Atlas.
+- `JWT_SECRET`: Secret key used for signing session tokens.
+- `NODE_ENV`: `production`
+- `DEFAULT_CURRENCY_CODE`: `PKR`
+- `DEFAULT_TIMEZONE`: `Asia/Karachi`
+
+---
+
 ## 🔑 Default Staff Credentials (after seeding)
 
 | Role | Email | Password | Access Level |
@@ -81,3 +98,4 @@ npm run test:unit
 | **Admin** | `admin@visionpulse.pk` | `AdminPass123!` | Full Read/Write & User Management |
 | **Manager** | `manager@visionpulse.pk` | `ManagerPass123!` | Read & Batch Import |
 | **Viewer** | `viewer@visionpulse.pk` | `ViewerPass123!` | Read-Only (Sanitized Customer & Cost fields) |
+
