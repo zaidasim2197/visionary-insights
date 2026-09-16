@@ -1,7 +1,7 @@
 import type { Role } from "./shared-types";
 
 /**
- * Server-side security mask according to Haroon's security matrix.
+ * Server-side security mask according to organization role-based access control (RBAC).
  * VIEWER role: Aggregate counts and totals ONLY.
  * MUST NOT see: Customer names, Unit cost, Receivable detail, Order/invoice drill-downs.
  */

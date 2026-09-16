@@ -58,9 +58,8 @@ function InventoryPage() {
         <KpiCard
           title="Stock Value"
           value={loading || !kpis ? "—" : kpis.totalStockValue !== null ? formatKpiCurrency(kpis.totalStockValue) : "PKR 0"}
-          isSnapshot
           comparison="At unit cost"
-          infoExplanation="Total valuation of active product inventory currently on hand, computed at unit cost. LIVE SNAPSHOT unaffected by date filter."
+          infoExplanation="Total valuation of active product inventory currently on hand, computed at unit cost."
           infoFormula="Sum(Quantity On Hand × Unit Cost)"
           infoSource="Product + InventoryPosition"
           icon={<Package className="w-4 h-4 text-blue-500" />}

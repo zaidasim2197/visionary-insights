@@ -1,5 +1,5 @@
 import React from "react";
-import { TrendingUp, TrendingDown, Minus, ChevronRight, Zap } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ChevronRight } from "lucide-react";
 import { InfoPopover } from "./InfoPopover";
 
 export interface KpiCardProps {
@@ -7,7 +7,6 @@ export interface KpiCardProps {
   value: string | number | null;
   comparison?: string;
   changePct?: number | null | undefined;
-  isSnapshot?: boolean;
   infoExplanation: string;
   infoFormula?: string;
   infoSource?: string;
@@ -20,7 +19,6 @@ export const KpiCard: React.FC<KpiCardProps> = ({
   value,
   comparison,
   changePct,
-  isSnapshot,
   infoExplanation,
   infoFormula,
   infoSource,
@@ -49,12 +47,6 @@ export const KpiCard: React.FC<KpiCardProps> = ({
         </div>
 
         <div className="flex items-center space-x-1 shrink-0" onClick={(e) => e.stopPropagation()}>
-          {isSnapshot && (
-            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/50 whitespace-nowrap">
-              <Zap className="w-2.5 h-2.5 mr-0.5" />
-              Live Snapshot
-            </span>
-          )}
           <InfoPopover
             title={title}
             explanation={infoExplanation}

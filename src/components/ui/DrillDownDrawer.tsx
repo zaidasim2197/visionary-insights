@@ -97,10 +97,10 @@ export const DrillDownDrawer: React.FC = () => {
             <div className="p-8 text-center bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/50 rounded-xl my-6">
               <ShieldAlert className="w-8 h-8 text-amber-600 dark:text-amber-400 mx-auto mb-2" />
               <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                Individual Record Access Restricted
+                Detailed Record Access Restricted
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-400 max-w-md mx-auto mt-1">
-                Under Haroon's security matrix, users in the <strong>VIEWER</strong> role can view aggregate counts and high-level totals, but cannot access individual order lines, invoice details, or customer record lists.
+                Your current account role (<strong>VIEWER</strong>) allows viewing aggregate totals and operational KPIs. Granular transaction logs, invoice breakdowns, and customer contact records require <strong>Manager</strong> or <strong>Admin</strong> access.
               </p>
             </div>
           ) : loading ? (

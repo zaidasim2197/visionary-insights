@@ -63,9 +63,8 @@ function ReceivablesPage() {
         <KpiCard
           title="Outstanding"
           value={loading || !kpis ? "—" : kpis.totalOutstanding !== null ? formatKpiCurrency(kpis.totalOutstanding) : "PKR 0"}
-          isSnapshot
           comparison="Uncollected balances"
-          infoExplanation="Total monetary balance remaining to be collected across all unpaid and partially paid customer invoices. LIVE SNAPSHOT unaffected by date filter."
+          infoExplanation="Total monetary balance remaining to be collected across all unpaid and partially paid customer invoices."
           infoFormula="Sum(Invoice Amount - Amount Paid) where status != 'Paid'"
           infoSource="Receivable"
           onClick={() => openDrillDown("outstanding", "All Outstanding Invoices")}
@@ -74,9 +73,8 @@ function ReceivablesPage() {
         <KpiCard
           title="Overdue Amount"
           value={loading || !kpis ? "—" : kpis.overdueAmount !== null ? formatKpiCurrency(kpis.overdueAmount) : "PKR 0"}
-          isSnapshot
           comparison="Past due date"
-          infoExplanation="Sum of uncollected balances on invoices whose due date has already passed. LIVE SNAPSHOT unaffected by date filter."
+          infoExplanation="Sum of uncollected balances on invoices whose due date has already passed."
           infoFormula="Sum(Invoice Amount - Amount Paid) where DueDate < Today and status != 'Paid'"
           infoSource="Receivable"
           onClick={() => openDrillDown("overdue", "Overdue Invoices List")}

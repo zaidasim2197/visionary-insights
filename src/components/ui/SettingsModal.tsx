@@ -64,7 +64,7 @@ export const SettingsModal: React.FC = () => {
               <span>[DEV TEST TOOL] Role Authorization Simulator</span>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-relaxed">
-              Per Haroon's architecture rules, server session role is the sole authority. This selector is isolated for UI demonstration to test how Viewer masking hides customer names and sensitive data.
+              Role permissions are enforced server-side. Use this preview selector to preview how metrics, drill-downs, and customer data masking adapt for each access level.
             </p>
             <div className="grid grid-cols-3 gap-2">
               {(["ADMIN", "MANAGER", "VIEWER"] as Role[]).map((r) => (
