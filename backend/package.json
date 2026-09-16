@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node --check src/server.js && node --check api/index.js",
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "seed": "node seed/seed.js",
