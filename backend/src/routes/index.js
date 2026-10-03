@@ -6,6 +6,7 @@ import inventoryRoutes from './inventory.routes.js';
 import receivablesRoutes from './receivables.routes.js';
 import analyticsRoutes from './analytics.routes.js';
 import importRoutes from './import.routes.js';
+import dashboardRoutes from './dashboard.routes.js';
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.get('/', (req, res) => {
     endpoints: {
       health: '/health',
       auth: '/api/v1/auth',
+      dashboard: '/api/dashboard',
       sales: '/api/v1/sales',
       orders: '/api/v1/orders',
       inventory: '/api/v1/inventory',
@@ -38,6 +40,9 @@ router.get('/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// Section 5 Dashboard API Contract Router
+router.use('/api/dashboard', dashboardRoutes);
 
 // API v1 routers
 router.use('/api/v1/auth', authRoutes);

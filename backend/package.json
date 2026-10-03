@@ -9,9 +9,9 @@
     "dev": "node --watch src/server.js",
     "seed": "node seed/seed.js",
     "seed:large": "SEED_MODE=large node seed/seed.js",
-    "test": "node --test tests/**/*.test.js",
+    "test": "node --test --test-concurrency=1 tests/**/*.test.js",
     "test:unit": "node --test tests/unit/**/*.test.js",
-    "test:integration": "node --test tests/integration/**/*.test.js"
+    "test:integration": "node --test --test-concurrency=1 tests/integration/**/*.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

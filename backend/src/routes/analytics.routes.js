@@ -8,7 +8,7 @@ const router = Router();
 
 router.use(requireAuth);
 
-// GET /api/v1/analytics/summary (Admin, Manager, Viewer)
-router.get('/summary', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), AnalyticsController.getSummary);
+// GET /api/v1/analytics/summary (Admin, Manager ONLY per Section 6)
+router.get('/summary', requireRole('Admin', 'Manager'), cacheMiddleware(), AnalyticsController.getSummary);
 
 export default router;

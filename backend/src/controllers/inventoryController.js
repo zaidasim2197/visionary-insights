@@ -5,8 +5,22 @@ export class InventoryController {
     try {
       const { preset, from, to } = req.query;
       const result = await InventoryService.getSummary({ preset, from, to });
+      let data = result;
+
+      // Section 6: Inventory Value and Unit Cost: Viewer has No access
+      if (req.user?.role === 'Viewer') {
+        data = {
+          snapshotTime: result.snapshotTime,
+          liveSnapshot: {
+            totalActiveProducts: result.liveSnapshot.totalActiveProducts,
+            lowStockCount: result.liveSnapshot.lowStockCount,
+            outOfStockCount: result.liveSnapshot.outOfStockCount
+          }
+        };
+      }
+
       return res.status(200).json({
-        data: result,
+        data,
         recordCount: 1,
         generatedAt: new Date().toISOString()
       });

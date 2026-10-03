@@ -72,6 +72,24 @@ npm test
 npm run test:unit
 ```
 
+### Test Results Summary (8/8 Passing — 100%):
+- `✔ Access Control & RBAC Matrix - Enforces Role Permissions & Viewer Redaction`
+- `✔ Import Validator - Full validation and edge case rejection per Section 2.6`
+- `✔ Reconciliation Test - Naive loop recalculation matches KPI aggregation logic`
+- `✔ Date Utils - Resolves date range presets correctly with PKT (UTC+5) offset`
+- `✔ Date Utils - Calculates previous period of exact equal length`
+- `✔ Money Utils - Integer Subunits conversion and formatting`
+- `✔ KPI Formula Guards - Division by Zero Protections`
+- `✔ Viewer Redaction - Strips customer name/email and unit cost server-side`
+
+---
+
+## 📚 Technical Documentation
+
+- **[Integration & Handover Report](file:///d:/workspace/sales-dashboard/backend/docs/INTEGRATION_AND_HANDOVER.md)**: Details the reconciliation proof, date-range engine, drill-down consistency, and large dataset sanity test.
+- **[API Specification](file:///d:/workspace/sales-dashboard/backend/docs/API.md)**: Full endpoint reference, query parameters, payload schemas, and RBAC matrix.
+- **[Architecture Deviations & Decisions](file:///d:/workspace/sales-dashboard/backend/docs/ARCHITECTURE_DEVIATIONS.md)**: Documents MongoDB schema design, integer subunit arithmetic, and caching strategy.
+
 ---
 
 ## ☁️ Vercel Serverless Deployment

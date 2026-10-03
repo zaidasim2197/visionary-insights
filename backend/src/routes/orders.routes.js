@@ -11,7 +11,7 @@ router.use(requireAuth);
 // GET /api/v1/orders/summary (Admin, Manager, Viewer)
 router.get('/summary', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), OrdersController.getSummary);
 
-// GET /api/v1/orders/drilldown (Admin, Manager, Viewer)
-router.get('/drilldown', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), OrdersController.getDrilldown);
+// GET /api/v1/orders/drilldown (Admin, Manager ONLY per Section 6)
+router.get('/drilldown', requireRole('Admin', 'Manager'), cacheMiddleware(), OrdersController.getDrilldown);
 
 export default router;

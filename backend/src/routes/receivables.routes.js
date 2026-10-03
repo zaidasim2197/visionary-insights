@@ -8,10 +8,10 @@ const router = Router();
 
 router.use(requireAuth);
 
-// GET /api/v1/receivables/summary (Admin, Manager, Viewer)
-router.get('/summary', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), ReceivablesController.getSummary);
+// GET /api/v1/receivables/summary (Admin, Manager ONLY per Section 6)
+router.get('/summary', requireRole('Admin', 'Manager'), cacheMiddleware(), ReceivablesController.getSummary);
 
-// GET /api/v1/receivables/drilldown (Admin, Manager, Viewer)
-router.get('/drilldown', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), ReceivablesController.getDrilldown);
+// GET /api/v1/receivables/drilldown (Admin, Manager ONLY per Section 6)
+router.get('/drilldown', requireRole('Admin', 'Manager'), cacheMiddleware(), ReceivablesController.getDrilldown);
 
 export default router;

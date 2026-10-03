@@ -1,6 +1,6 @@
 # VisionPulse Sales & Operations Dashboard — API Documentation
 
-**Base URL:** `/api/v1`  
+**Specification Reference:** Section 5 (API Contract) & Section 6 (Security Matrix)  
 **Authentication:** Header `Authorization: Bearer <JWT_TOKEN>` on all protected endpoints.  
 **Standard Response Attributes:** All responses include `recordCount` and `generatedAt` (ISO 8601 UTC).
 
@@ -37,142 +37,60 @@
 
 ---
 
-## 2. Sales Endpoints
+## 2. Section 5 API Contract Endpoints (`/api/dashboard`)
 
-### GET `/api/v1/sales/summary`
-- **Access:** Admin, Manager, Viewer
-- **Query Parameters:**
-  - `preset`: `today` | `week` | `month` (default) | `quarter` | `year` | `custom`
-  - `from`: `YYYY-MM-DD` (optional, for custom preset)
-  - `to`: `YYYY-MM-DD` (optional, for custom preset)
-- **Response 200 OK:**
-  ```json
-  {
-    "data": {
-      "period": { "preset": "month", "fromDate": "2026-03-01T...", "toDate": "2026-03-31T..." },
-      "current": { "totalSales": 125000000, "totalOrders": 34, "averageOrderValue": 3676471 },
-      "previous": { "totalSales": 110000000, "totalOrders": 30, "averageOrderValue": 3666667 },
-      "growth": { "salesGrowthPercent": 13.64, "ordersGrowthPercent": 13.33 }
-    },
-    "recordCount": 1,
-    "generatedAt": "2026-09-15T12:00:00.000Z"
-  }
-  ```
+### 2.1 Sales Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/kpis/sales` | `GET` | `from`, `to` | Admin, Manager, Viewer | Total Sales, Total Orders, Average Order Value, Sales Growth |
+| `/api/dashboard/trends/sales` | `GET` | `from`, `to`, `granularity` | Admin, Manager, Viewer | Monthly sales series for trend chart |
 
-### GET `/api/v1/sales/drilldown`
-- **Access:** Admin, Manager, Viewer *(Viewer has `customerName` redacted)*
-- **Query Parameters:** `preset`, `from`, `to`, `page` (default 1), `limit` (default 25), `search`
-- **Response 200 OK:** Paginated list of matching non-cancelled orders.
+### 2.2 Orders & Fulfillment Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/kpis/orders` | `GET` | `from`, `to` | Admin, Manager, Viewer | Orders Pending, Delivered, Cancelled, Fulfillment Rate |
+| `/api/dashboard/trends/orders` | `GET` | `from`, `to`, `granularity` | Admin, Manager, Viewer | Order status series for trend chart |
+| `/api/dashboard/orders` | `GET` | `status`, `customer`, `from`, `to`, `page` | **Admin, Manager ONLY** (Viewer 403) | Paginated drill-down order list |
+| `/api/dashboard/orders/{id}` | `GET` | `id` | **Admin, Manager ONLY** (Viewer 403) | Single order detail with line items |
 
----
+### 2.3 Inventory Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/kpis/inventory/counts` | `GET` | *none* | Admin, Manager, Viewer | Items Low on Stock, Out of Stock, Total Active Products |
+| `/api/dashboard/trends/inventory` | `GET` | `from`, `to`, `granularity` | Admin, Manager, Viewer | Stock in vs stock out series for trend chart |
+| `/api/dashboard/kpis/inventory/value` | `GET` | *none* | **Admin, Manager ONLY** (Viewer 403) | Total Stock Value (Live snapshot) |
+| `/api/dashboard/inventory/lowstock` | `GET` | `page` | **Admin, Manager ONLY** (Viewer 403) | Drill down low stock product list |
+| `/api/dashboard/inventory/outofstock` | `GET` | `page` | **Admin, Manager ONLY** (Viewer 403) | Drill down out of stock product list |
 
-## 3. Orders & Fulfillment Endpoints
+### 2.4 Receivables Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/kpis/receivables` | `GET` | `from`, `to` | **Admin, Manager ONLY** (Viewer 403) | Total Outstanding, Overdue Amount/Count, Avg Days to Pay |
+| `/api/dashboard/receivables/aging` | `GET` | *none* | **Admin, Manager ONLY** (Viewer 403) | Aging bucket breakdown (0-30, 31-60, 61-90, 90+) |
+| `/api/dashboard/receivables/outstanding` | `GET` | `page` | **Admin, Manager ONLY** (Viewer 403) | Drill down outstanding invoices list |
+| `/api/dashboard/receivables/overdue` | `GET` | `page` | **Admin, Manager ONLY** (Viewer 403) | Drill down overdue invoices list |
+| `/api/dashboard/receivables/{id}` | `GET` | `id` | **Admin, Manager ONLY** (Viewer 403) | Single invoice detail |
+| `/api/dashboard/trends/receivables` | `GET` | `from`, `to`, `granularity` | **Admin, Manager ONLY** (Viewer 403) | Outstanding & overdue trend series |
 
-### GET `/api/v1/orders/summary`
-- **Access:** Admin, Manager, Viewer
-- **Response 200 OK:**
-  ```json
-  {
-    "data": {
-      "totalOrders": 45,
-      "statusCounts": {
-        "Pending": 4,
-        "Processing": 3,
-        "Shipped": 5,
-        "Delivered": 30,
-        "Cancelled": 2,
-        "Returned": 1
-      },
-      "fulfillmentRate": 69.77,
-      "avgFulfillmentHours": 34.5
-    },
-    "recordCount": 1,
-    "generatedAt": "2026-09-15T12:00:00.000Z"
-  }
-  ```
+### 2.5 Rankings Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/rankings/products` | `GET` | `from`, `to`, `limit` | **Admin, Manager ONLY** (Viewer 403) | Top 5 products by sales |
+| `/api/dashboard/rankings/customers` | `GET` | `from`, `to`, `limit` | **Admin, Manager ONLY** (Viewer 403) | Top 5 customers by sales |
 
-### GET `/api/v1/orders/drilldown`
-- **Access:** Admin, Manager, Viewer
-- **Query Parameters:** `preset`, `status` (`ALL`, `Pending`, `Delivered`, etc.), `page`, `limit`, `search`
+### 2.6 Operational KPIs Endpoints
+| Endpoint | Method | Key Parameters | Role Access (Section 6) | Purpose |
+|---|---|---|---|---|
+| `/api/dashboard/kpis/operational` | `GET` | `from`, `to` | **Admin, Manager ONLY** (Viewer 403) | Fulfillment Time, Return Rate, Repeat Customer Rate, Inventory Turnover |
+| `/api/dashboard/trends/operational` | `GET` | `from`, `to`, `granularity` | **Admin, Manager ONLY** (Viewer 403) | Operational trends series |
+| `/api/dashboard/operational/fulfillment-time/drilldown` | `GET` | `from`, `to`, `page` | **Admin, Manager ONLY** (Viewer 403) | Delivered orders behind Average Fulfillment Time |
+| `/api/dashboard/operational/returns/drilldown` | `GET` | `from`, `to`, `page` | **Admin, Manager ONLY** (Viewer 403) | Returned orders behind Return Rate |
+| `/api/dashboard/operational/repeat-customers/drilldown` | `GET` | `from`, `to`, `page` | **Admin, Manager ONLY** (Viewer 403) | Customers behind Repeat Customer Rate |
+| `/api/dashboard/operational/inventory-turnover/drilldown` | `GET` | `from`, `to`, `page` | **Admin, Manager ONLY** (Viewer 403) | Products behind Inventory Turnover |
 
 ---
 
-## 4. Inventory Endpoints
-
-### GET `/api/v1/inventory/summary`
-- **Access:** Admin, Manager, Viewer
-- **Response 200 OK:**
-  ```json
-  {
-    "data": {
-      "snapshotTime": "2026-09-15T12:00:00.000Z",
-      "liveSnapshot": {
-        "totalStockValue": 450000000,
-        "totalActiveProducts": 12,
-        "lowStockCount": 1,
-        "outOfStockCount": 1
-      },
-      "periodTurnover": {
-        "period": { "preset": "month", "fromDate": "...", "toDate": "..." },
-        "cogs": 85000000,
-        "inventoryTurnoverRate": 0.19
-      }
-    },
-    "recordCount": 1,
-    "generatedAt": "2026-09-15T12:00:00.000Z"
-  }
-  ```
-
-### GET `/api/v1/inventory/drilldown`
-- **Access:** Admin, Manager, Viewer *(Viewer has `unitCost` omitted)*
-- **Query Parameters:** `status` (`ALL`, `In Stock`, `Low Stock`, `Out of Stock`), `category`, `page`, `limit`, `search`
-
----
-
-## 5. Receivables Endpoints
-
-### GET `/api/v1/receivables/summary`
-- **Access:** Admin, Manager, Viewer
-- **Response 200 OK:**
-  ```json
-  {
-    "data": {
-      "snapshotTime": "2026-09-15T12:00:00.000Z",
-      "liveSnapshot": {
-        "totalOutstanding": 18500000,
-        "overdueAmount": 6500000,
-        "overdueInvoicesCount": 3
-      },
-      "periodPaidMetrics": {
-        "period": { "preset": "month", "fromDate": "...", "toDate": "..." },
-        "paidInvoicesCount": 28,
-        "avgDaysToPay": 14.2
-      }
-    },
-    "recordCount": 1,
-    "generatedAt": "2026-09-15T12:00:00.000Z"
-  }
-  ```
-
-### GET `/api/v1/receivables/drilldown`
-- **Access:** Admin, Manager, Viewer
-- **Query Parameters:** `status` (`ALL`, `Unpaid`, `Partially Paid`, `Paid`, `OVERDUE`), `page`, `limit`, `search`
-
----
-
-## 6. Analytics & Operational Endpoints
-
-### GET `/api/v1/analytics/summary`
-- **Access:** Admin, Manager, Viewer
-- **Response 200 OK:**
-  - `topProducts`: Top 5 products by sales volume & revenue.
-  - `topCustomers`: Top 5 customers by total spend.
-  - `regionalSales`: Revenue breakdown grouped by customer region.
-  - `operational`: Return Rate (%) and Repeat Customer Rate (%).
-
----
-
-## 7. Import Endpoints
+## 3. Order Import Endpoint
 
 ### POST `/api/v1/import/orders`
 - **Access:** Admin, Manager only (Viewer returns 403 Forbidden)

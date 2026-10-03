@@ -8,10 +8,10 @@ const router = Router();
 
 router.use(requireAuth);
 
-// GET /api/v1/inventory/summary (Admin, Manager, Viewer)
+// GET /api/v1/inventory/summary (Admin, Manager, Viewer - Viewer receives sanitized counts without totalStockValue)
 router.get('/summary', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), InventoryController.getSummary);
 
-// GET /api/v1/inventory/drilldown (Admin, Manager, Viewer)
-router.get('/drilldown', requireRole('Admin', 'Manager', 'Viewer'), cacheMiddleware(), InventoryController.getDrilldown);
+// GET /api/v1/inventory/drilldown (Admin, Manager ONLY per Section 6)
+router.get('/drilldown', requireRole('Admin', 'Manager'), cacheMiddleware(), InventoryController.getDrilldown);
 
 export default router;
